@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101522">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="記帳">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="apple-touch-icon" href="./icon-192.png">
+  <title>記帳</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand-mark">￥</div>
+      <div><h1>記帳</h1><p>PERSONAL FINANCE</p></div>
+      <span class="local-tag">個人使用</span>
+    </header>
+
+    <section class="balance-card">
+      <p class="eyebrow">目前餘額</p>
+      <div class="balance" id="balance">NT$ 0</div>
+      <div class="balance-foot"><span>所有紀錄加總</span><span id="record-count">0 筆紀錄</span></div>
+    </section>
+
+    <section class="entry-panel">
+      <div class="section-heading"><h2 id="form-title">新增紀錄</h2><span class="hint">快速記下一筆</span></div>
+      <div class="type-switch" role="group" aria-label="紀錄類型">
+        <button class="type-btn active expense" data-type="支出" type="button">支出</button>
+        <button class="type-btn income" data-type="收入" type="button">收入</button>
+      </div>
+      <label class="field-label" for="amount">金額（NT$）</label>
+      <div class="amount-wrap"><span>NT$</span><input id="amount" type="number" min="1" step="1" inputmode="decimal" placeholder="0" /></div>
+      <label class="field-label" for="note">項目名稱</label>
+      <input class="text-input" id="note" type="text" maxlength="40" placeholder="例如：午餐、交通、零用錢" />
+      <div class="form-actions">
+        <button class="save-btn" id="save" type="button">＋ 新增支出</button>
+        <button class="cancel-btn hidden" id="cancel-edit" type="button">取消</button>
+      </div>
+      <p class="error" id="error" role="alert"></p>
+    </section>
+
+    <section class="records-panel">
+      <div class="section-heading"><h2>帳目明細</h2><span class="hint">最新紀錄在最上方</span></div>
+      <div id="records" class="records">
+        <div class="empty"><div class="empty-icon">↗</div><strong>還沒有任何紀錄</strong><span>新增第一筆收入或支出吧。</span></div>
+      </div>
+    </section>
+
+    <footer>資料只儲存在這台裝置的瀏覽器中</footer>
+  </main>
+  <script src="./app.js"></script>
+</body>
+</html>
